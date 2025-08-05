@@ -72,4 +72,5 @@ function renderMatches(matches) {
 }
 
 // Page load hone par function ko call karein
+
 document.addEventListener('DOMContentLoaded', fetchMatchData);
