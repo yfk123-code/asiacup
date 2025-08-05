@@ -1,7 +1,7 @@
 // admin.js file
 
 // Google Apps Script Web app URL yahan daalein
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx5c6dhvkPmBpILcGjvHn8R-BO_Qh1QYRSpnH2Q8T8BTAU08KBAJYzknrl3FMeTzxTYPg/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxUwLNSYBiBbx_dyk6C2I5AZSr_ZBfI90fPbjWrUk89VLHG4RatqYA6pZMS8KlJaoIXFA/exec';
 
 const form = document.getElementById('match-form');
 const messageDiv = document.getElementById('message');
@@ -54,3 +54,4 @@ form.addEventListener('submit', async (e) => {
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
 });
+
