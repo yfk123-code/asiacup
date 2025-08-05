@@ -1,7 +1,7 @@
 // admin.js file
 
 // Naya Google Apps Script Web app URL yahan daalein
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwBNb1ybcv6Dks_apXoqc4UtSky52KwH_runYUtuLTuH6T0FnXiiyhtPLptysNiPWun3Q/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx5c6dhvkPmBpILcGjvHn8R-BO_Qh1QYRSpnH2Q8T8BTAU08KBAJYzknrl3FMeTzxTYPg/exec';
 
 const form = document.getElementById('match-form');
 const messageDiv = document.getElementById('message');
@@ -53,4 +53,5 @@ form.addEventListener('submit', async (e) => {
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
 });
+
 
