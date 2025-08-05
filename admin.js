@@ -53,3 +53,4 @@ form.addEventListener('submit', async (e) => {
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
 });
+
