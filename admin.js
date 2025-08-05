@@ -1,8 +1,7 @@
 // admin.js file
 
-// Apni Google Sheet ID aur API Key yahan daalein
-const SHEET_ID = '1yHnRbzv0vnmG5tygUyEHGeu0vMwMRKxU4i-lOmPH7is'; 
-const API_KEY = 'AIzaSyCFMZy6DlVHS0oybbTyk8dSCM0tBvmz-FU'; 
+// Naya Google Apps Script Web app URL yahan daalein
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwBNb1ybcv6Dks_apXoqc4UtSky52KwH_runYUtuLTuH6T0FnXiiyhtPLptysNiPWun3Q/exec';
 
 const form = document.getElementById('match-form');
 const messageDiv = document.getElementById('message');
@@ -29,25 +28,23 @@ form.addEventListener('submit', async (e) => {
     ];
 
     try {
-        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:append?valueInputOption=USER_ENTERED&key=${API_KEY}`, {
+        const response = await fetch(WEB_APP_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                values: [rowData]
-            })
+            body: JSON.stringify(rowData)
         });
 
-        const data = await response.json();
-        
-        if (data.updates) {
+        const data = await response.text();
+
+        if (data === "Success") {
             messageDiv.style.color = 'green';
             messageDiv.innerText = 'Match added successfully!';
             form.reset();
         } else {
             messageDiv.style.color = 'red';
-            messageDiv.innerText = 'Failed to add match. Please check your API key.';
+            messageDiv.innerText = 'Failed to add match. Please try again.';
         }
 
     } catch (error) {
@@ -55,5 +52,4 @@ form.addEventListener('submit', async (e) => {
         messageDiv.style.color = 'red';
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
-
 });
