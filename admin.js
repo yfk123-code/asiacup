@@ -1,6 +1,6 @@
 // admin.js file
 
-// Naya Google Apps Script Web app URL yahan daalein
+// Google Apps Script Web app URL yahan daalein
 const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbx5c6dhvkPmBpILcGjvHn8R-BO_Qh1QYRSpnH2Q8T8BTAU08KBAJYzknrl3FMeTzxTYPg/exec';
 
 const form = document.getElementById('match-form');
@@ -35,10 +35,11 @@ form.addEventListener('submit', async (e) => {
             },
             body: JSON.stringify(rowData)
         });
+        
+        // Response ko JSON mein parse karein
+        const data = await response.json(); 
 
-        const data = await response.text();
-
-        if (data === "Success") {
+        if (data.status === "Success") {
             messageDiv.style.color = 'green';
             messageDiv.innerText = 'Match added successfully!';
             form.reset();
@@ -53,5 +54,3 @@ form.addEventListener('submit', async (e) => {
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
 });
-
-
