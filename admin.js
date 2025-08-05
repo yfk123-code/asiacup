@@ -55,4 +55,5 @@ form.addEventListener('submit', async (e) => {
         messageDiv.style.color = 'red';
         messageDiv.innerText = 'An error occurred. Please try again.';
     }
+
 });
